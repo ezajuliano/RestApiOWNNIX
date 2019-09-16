@@ -17,6 +17,8 @@ class CreateSyslogsTable extends Migration
             $table->increments('id_log');
             $table->date('date_event');
             $table->string('message_sys');
+            $table->unsignedInteger('utilisateur_code');
+            $table->foreign('utilisateur_code')->references('code_utilisateur')->on('utilisateurs')->onDelete('cascade');
             $table->timestamps();
         });
     }

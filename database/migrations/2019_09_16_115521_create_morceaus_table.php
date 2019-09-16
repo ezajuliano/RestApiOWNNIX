@@ -15,7 +15,6 @@ class CreateMorceausTable extends Migration
     {
         Schema::create('morceaus', function (Blueprint $table) {
             $table->increments('code_morceau');
-            $table->string('code_morceau');
             $table->string('titre');
             $table->string('duree');
             $table->boolean('favori');
@@ -26,6 +25,12 @@ class CreateMorceausTable extends Migration
             $table->integer('nombre_jaime');
             $table->integer('nombre_partage');
             $table->double('prix_morceau');
+            $table->unsignedInteger('album_code');
+            $table->foreign('album_code')->references('code_album')->on('album')->onDelete('cascade');
+            $table->unsignedInteger('genre_code');
+            $table->foreign('genre_code')->references('code_genre')->on('genre')->onDelete('cascade');
+            $table->unsignedInteger('artiste_code');
+            $table->foreign('artiste_code')->references('code_artiste')->on('artiste')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -15,6 +15,10 @@ class CreateUtilisateurmorceausTable extends Migration
     {
         Schema::create('utilisateurmorceaus', function (Blueprint $table) {
             $table->date('date_achat_morceau');
+            $table->unsignedInteger('utilisateur_code');
+            $table->foreign('utilisateur_code')->references('code_utilisateur')->on('utilisateurs')->onDelete('cascade');
+            $table->unsignedInteger('morceau_code');
+            $table->foreign('morceau_code')->references('code_morceau')->on('morceau')->onDelete('cascade');
             $table->timestamps();
         });
     }

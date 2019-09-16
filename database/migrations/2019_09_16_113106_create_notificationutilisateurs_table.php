@@ -16,6 +16,10 @@ class CreateNotificationutilisateursTable extends Migration
         Schema::create('notificationutilisateurs', function (Blueprint $table) {
             $table->boolean('expire');
             $table->date('datevue');
+            $table->unsignedInteger('utilisateur_code');
+            $table->foreign('utilisateur_code')->references('code_utilisateur')->on('utilisateurs')->onDelete('cascade');
+            $table->unsignedInteger('notification_code');
+            $table->foreign('notification_code')->references('code_notification')->on('notifications')->onDelete('cascade');
             $table->timestamps();
         });
     }

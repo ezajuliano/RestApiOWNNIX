@@ -14,7 +14,7 @@ class CreateAlbumsTable extends Migration
     public function up()
     {
         Schema::create('albums', function (Blueprint $table) {
-            $table->increments('codealbum');
+            $table->increments('code_album');
             $table->string('titre_album');
             $table->string('photo_couverture');
             $table->integer('nombre_morceau');

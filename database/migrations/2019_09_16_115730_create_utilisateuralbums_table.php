@@ -15,6 +15,10 @@ class CreateUtilisateuralbumsTable extends Migration
     {
         Schema::create('utilisateuralbums', function (Blueprint $table) {
             $table->date('date_achat_album');
+            $table->unsignedInteger('utilisateur_code');
+            $table->foreign('utilisateur_code')->references('code_utilisateur')->on('utilisateurs')->onDelete('cascade');
+            $table->unsignedInteger('album_code');
+            $table->foreign('album_code')->references('code_album')->on('album')->onDelete('cascade');
             $table->timestamps();
         });
     }

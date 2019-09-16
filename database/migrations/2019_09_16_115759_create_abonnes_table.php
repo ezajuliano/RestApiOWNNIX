@@ -20,6 +20,8 @@ class CreateAbonnesTable extends Migration
             $table->string('email');
             $table->string('telephone');
             $table->string('photo');
+            $table->unsignedInteger('utilisateur_code');
+            $table->foreign('utilisateur_code')->references('code_utilisateur')->on('utilisateurs')->onDelete('cascade');
             $table->timestamps();
         });
     }
