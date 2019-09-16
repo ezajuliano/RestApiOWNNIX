@@ -14,7 +14,12 @@ class CreateAbonnesTable extends Migration
     public function up()
     {
         Schema::create('abonnes', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('code_abone');
+            $table->string('nom');
+            $table->string('prenom');
+            $table->string('email');
+            $table->string('telephone');
+            $table->string('photo');
             $table->timestamps();
         });
     }

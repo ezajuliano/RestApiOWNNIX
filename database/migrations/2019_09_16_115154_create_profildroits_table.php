@@ -14,7 +14,11 @@ class CreateProfildroitsTable extends Migration
     public function up()
     {
         Schema::create('profildroits', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->boolean('assigne_droit');
+            $table->unsignedInteger('droit_code');
+            $table->foreign('droit_code')->references('code_droit')->on('droits')->onDelete('cascade');
+            $table->unsignedInteger('profil_code');
+            $table->foreign('profil_code')->references('code_profil')->on('profils')->onDelete('cascade');
             $table->timestamps();
         });
     }

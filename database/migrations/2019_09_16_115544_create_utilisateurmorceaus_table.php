@@ -14,7 +14,7 @@ class CreateUtilisateurmorceausTable extends Migration
     public function up()
     {
         Schema::create('utilisateurmorceaus', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->date('date_achat_morceau');
             $table->timestamps();
         });
     }

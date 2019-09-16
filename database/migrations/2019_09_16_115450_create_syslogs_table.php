@@ -14,7 +14,9 @@ class CreateSyslogsTable extends Migration
     public function up()
     {
         Schema::create('syslogs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id_log');
+            $table->date('date_event');
+            $table->string('message_sys');
             $table->timestamps();
         });
     }

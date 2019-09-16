@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDroitsTable extends Migration
+class CreateArtistesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateDroitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('droits', function (Blueprint $table) {
-            $table->increments('code_droit');
-            $table->string('libelle_droit');
+        Schema::create('artistes', function (Blueprint $table) {
+            $table->increments('code_artiste');
+            $table->string('nom_artiste');
+            $table->string('prenom_artiste');
+            $table->string('pays');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateDroitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('droits');
+        Schema::dropIfExists('artistes');
     }
 }

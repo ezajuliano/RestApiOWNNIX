@@ -14,7 +14,11 @@ class CreatePublicitesTable extends Migration
     public function up()
     {
         Schema::create('publicites', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id_publicite');
+            $table->string('libelle_publicite');
+            $table->string('description');
+            $table->string('photo_publicite');
+            $table->date('date_ajout_publicite');
             $table->timestamps();
         });
     }

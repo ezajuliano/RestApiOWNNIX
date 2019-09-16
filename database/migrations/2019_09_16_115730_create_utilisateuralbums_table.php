@@ -14,7 +14,7 @@ class CreateUtilisateuralbumsTable extends Migration
     public function up()
     {
         Schema::create('utilisateuralbums', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->date('date_achat_album');
             $table->timestamps();
         });
     }

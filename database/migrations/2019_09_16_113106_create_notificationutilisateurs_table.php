@@ -14,7 +14,8 @@ class CreateNotificationutilisateursTable extends Migration
     public function up()
     {
         Schema::create('notificationutilisateurs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->boolean('expire');
+            $table->date('datevue');
             $table->timestamps();
         });
     }

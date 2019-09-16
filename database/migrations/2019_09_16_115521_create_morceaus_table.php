@@ -14,7 +14,18 @@ class CreateMorceausTable extends Migration
     public function up()
     {
         Schema::create('morceaus', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('code_morceau');
+            $table->string('code_morceau');
+            $table->string('titre');
+            $table->string('duree');
+            $table->boolean('favori');
+            $table->boolean('in_playlist');
+            $table->boolean('payant');
+            $table->date('date_ajout');
+            $table->integer('nombre_decoute');
+            $table->integer('nombre_jaime');
+            $table->integer('nombre_partage');
+            $table->double('prix_morceau');
             $table->timestamps();
         });
     }
